@@ -1,0 +1,336 @@
+/*
+ Navicat Premium Data Transfer
+
+ Source Server         : test01
+ Source Server Type    : MySQL
+ Source Server Version : 80028
+ Source Host           : localhost:3306
+ Source Schema         : wanwu
+
+ Target Server Type    : MySQL
+ Target Server Version : 80028
+ File Encoding         : 65001
+
+ Date: 19/04/2023 23:26:32
+*/
+
+SET NAMES utf8mb4;
+SET FOREIGN_KEY_CHECKS = 0;
+
+-- ----------------------------
+-- Table structure for address
+-- ----------------------------
+DROP TABLE IF EXISTS `address`;
+CREATE TABLE `address`  (
+  `id` int(0) NOT NULL AUTO_INCREMENT,
+  `userid` int(0) NOT NULL DEFAULT 0 COMMENT '用户id',
+  `receivername` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL DEFAULT '0' COMMENT '收件人名字',
+  `receiverphone` bigint(0) NOT NULL DEFAULT 0 COMMENT '收件人手机号码',
+  `receiveraddress` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL DEFAULT '' COMMENT '收件人地址',
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = MyISAM AUTO_INCREMENT = 72 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci COMMENT = '地址管理' ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of address
+-- ----------------------------
+INSERT INTO `address` VALUES (1, 1, '李李李李李', 18782929483, '成都卡卡头');
+INSERT INTO `address` VALUES (2, 3, 'test', 123, '四川省中心');
+INSERT INTO `address` VALUES (3, 1, '熊二1', 444, '理塘县丁真家');
+INSERT INTO `address` VALUES (4, 1, '娃娃改！', 123, '娃娃家');
+INSERT INTO `address` VALUES (5, 1, '李李李李李', 18782929483, '成都卡卡头');
+INSERT INTO `address` VALUES (6, 3, 'test', 123, '四川省中心');
+INSERT INTO `address` VALUES (7, 1, '熊二2', 444, '理塘县丁真家');
+INSERT INTO `address` VALUES (8, 1, '娃娃222', 123, '娃娃家');
+INSERT INTO `address` VALUES (9, 1, '李李李李李', 18782929483, '成都卡卡头');
+INSERT INTO `address` VALUES (10, 3, 'test', 123, '四川省中心');
+INSERT INTO `address` VALUES (11, 1, '熊二34453212', 444, '理塘县丁真家');
+INSERT INTO `address` VALUES (12, 1, '娃娃432', 123, '娃娃家');
+INSERT INTO `address` VALUES (64, 1, '10123', 10123, '10123');
+INSERT INTO `address` VALUES (14, 3, 'test', 123, '四川省中心');
+INSERT INTO `address` VALUES (65, 1, '66', 66, '66');
+INSERT INTO `address` VALUES (66, 1, '44', 44, '44');
+INSERT INTO `address` VALUES (18, 3, 'test99999', 123, '四川省中心666');
+INSERT INTO `address` VALUES (67, 1, '445', 445, '445');
+INSERT INTO `address` VALUES (68, 1, '445', 445, '445');
+INSERT INTO `address` VALUES (69, 1, '667', 77, '6');
+INSERT INTO `address` VALUES (70, 1, '22', 22, '22');
+INSERT INTO `address` VALUES (71, 1, '343', 33, '33');
+INSERT INTO `address` VALUES (50, 6, '113', 123, '123');
+INSERT INTO `address` VALUES (51, 6, '123', 1234, '444');
+INSERT INTO `address` VALUES (52, 6, '321321', 124123, '32141');
+INSERT INTO `address` VALUES (53, 6, '888', 888, '888');
+INSERT INTO `address` VALUES (54, 6, '543421', 312312, '312321');
+INSERT INTO `address` VALUES (55, 6, '543421', 312312, '312321');
+INSERT INTO `address` VALUES (56, 6, '543421', 312312, '3123216');
+INSERT INTO `address` VALUES (57, 6, '543421', 312312, '31232167');
+INSERT INTO `address` VALUES (58, 6, '543421', 312312, '312321678');
+INSERT INTO `address` VALUES (59, 2, '牛牛', 321321431, '四川');
+
+-- ----------------------------
+-- Table structure for apply
+-- ----------------------------
+DROP TABLE IF EXISTS `apply`;
+CREATE TABLE `apply`  (
+  `id` int(0) NOT NULL AUTO_INCREMENT COMMENT '申请店铺ID',
+  `idcard` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL COMMENT '申请的身份证',
+  `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL COMMENT '申请的姓名',
+  `shopname` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL COMMENT '申请的店铺名',
+  `shopdetails` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL COMMENT '申请的店铺描述',
+  `userid` int(0) NOT NULL COMMENT '提交者ID',
+  `status` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '状态',
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of apply
+-- ----------------------------
+INSERT INTO `apply` VALUES (19, '510626200011225276', '周放', '鱿鱼外设店', '售卖鼠标、键盘、耳机等各种外设', 8, '已提交');
+
+-- ----------------------------
+-- Table structure for car
+-- ----------------------------
+DROP TABLE IF EXISTS `car`;
+CREATE TABLE `car`  (
+  `id` int(0) NOT NULL AUTO_INCREMENT COMMENT 'id',
+  `goodsid` int(0) NOT NULL COMMENT '商品id',
+  `userid` int(0) NOT NULL COMMENT '用户id',
+  `goodsnumber` int(0) NOT NULL COMMENT '商品数量',
+  `ischoose` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL DEFAULT 'true' COMMENT '是否选中',
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = MyISAM AUTO_INCREMENT = 4 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of car
+-- ----------------------------
+INSERT INTO `car` VALUES (1, 1, 1, 1, 'true');
+INSERT INTO `car` VALUES (2, 2, 1, 3, 'true');
+INSERT INTO `car` VALUES (3, 2, 2, 1, 'true');
+
+-- ----------------------------
+-- Table structure for class
+-- ----------------------------
+DROP TABLE IF EXISTS `class`;
+CREATE TABLE `class`  (
+  `id` int(0) NOT NULL AUTO_INCREMENT,
+  `classname` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL COMMENT '分类名字/类别名称',
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = MyISAM AUTO_INCREMENT = 18 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci COMMENT = '商品分类' ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of class
+-- ----------------------------
+INSERT INTO `class` VALUES (1, '水果');
+INSERT INTO `class` VALUES (2, '米');
+INSERT INTO `class` VALUES (3, '饮料');
+INSERT INTO `class` VALUES (4, '家电');
+INSERT INTO `class` VALUES (5, '车');
+INSERT INTO `class` VALUES (6, '油');
+INSERT INTO `class` VALUES (7, '衣服');
+INSERT INTO `class` VALUES (8, '裤子');
+INSERT INTO `class` VALUES (9, '鞋子');
+INSERT INTO `class` VALUES (10, '帽子');
+INSERT INTO `class` VALUES (11, '零食');
+INSERT INTO `class` VALUES (12, '厨房佐料');
+INSERT INTO `class` VALUES (17, '生活用品');
+INSERT INTO `class` VALUES (16, '鲜花');
+
+-- ----------------------------
+-- Table structure for comment
+-- ----------------------------
+DROP TABLE IF EXISTS `comment`;
+CREATE TABLE `comment`  (
+  `id` int(0) NOT NULL AUTO_INCREMENT,
+  `goodsid` int(0) NOT NULL COMMENT '商品的id',
+  `userid` int(0) NOT NULL COMMENT '用户的id',
+  `time` datetime(0) NOT NULL DEFAULT CURRENT_TIMESTAMP(0) COMMENT '评论时间',
+  `content` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL COMMENT '评论内容',
+  `isbuy` int(0) NOT NULL DEFAULT 0 COMMENT '是否购买过',
+  `score` float NOT NULL DEFAULT 0 COMMENT '评分',
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = MyISAM AUTO_INCREMENT = 8 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci COMMENT = '购买后评论' ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of comment
+-- ----------------------------
+INSERT INTO `comment` VALUES (1, 1, 1, '2023-01-05 19:39:40', '有点复杂', 0, 0);
+INSERT INTO `comment` VALUES (2, 6, 2, '2023-01-06 16:50:52', '酱油不好喝', 0, 0);
+INSERT INTO `comment` VALUES (3, 4, 70, '2023-01-29 15:32:04', '777', 1, 4);
+INSERT INTO `comment` VALUES (4, 8, 70, '2023-02-02 10:49:53', '花非常好闻！！！', 1, 5);
+INSERT INTO `comment` VALUES (5, 21, 70, '2023-02-03 13:54:39', '真的很好吃哦！', 1, 5);
+INSERT INTO `comment` VALUES (6, 25, 70, '2023-04-01 21:32:59', '123', 1, 4.5);
+INSERT INTO `comment` VALUES (7, 21, 70, '2023-04-01 21:44:32', '这个真的很好吃哦', 1, 4.5);
+
+-- ----------------------------
+-- Table structure for goods
+-- ----------------------------
+DROP TABLE IF EXISTS `goods`;
+CREATE TABLE `goods`  (
+  `id` int(0) NOT NULL AUTO_INCREMENT,
+  `title` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL DEFAULT '0' COMMENT '商品名称标题',
+  `price` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL DEFAULT '0' COMMENT '商品价格',
+  `goodsimg` varchar(500) CHARACTER SET utf8 COLLATE utf8_unicode_ci NULL DEFAULT NULL COMMENT '商品图片',
+  `stock` int(0) NOT NULL DEFAULT 0 COMMENT '仓库库存',
+  `sales` int(0) NOT NULL DEFAULT 0 COMMENT '销量',
+  `details` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL COMMENT '商品介绍',
+  `classid` int(0) NOT NULL COMMENT '分类id',
+  `uploatime` datetime(0) NOT NULL DEFAULT CURRENT_TIMESTAMP(0) COMMENT '商品上架时间',
+  `count` int(0) NOT NULL DEFAULT 0 COMMENT '选购数量',
+  `shopsid` int(0) NOT NULL DEFAULT 0 COMMENT '店铺id',
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = MyISAM AUTO_INCREMENT = 27 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci COMMENT = '商品详细信息' ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of goods
+-- ----------------------------
+INSERT INTO `goods` VALUES (1, '西瓜', '15', 'https://img10.360buyimg.com/n7/jfs/t1/115831/36/24612/165188/621ee263Ec3cadce3/7788db2fe6407d1a.jpg', 10000, 5, '甜美多汁', 1, '2023-01-06 10:36:55', 0, 1);
+INSERT INTO `goods` VALUES (2, '兰博基尼', '0.5', 'https://x0.ifengimg.com/res/2023/B8D3877674C71F5740F2A8A63C6927DCD30276A2_size278_w1200_h675.jpg', 9, 1, '厂长和小姨子跑了', 5, '2023-01-06 16:42:34', 1, 1);
+INSERT INTO `goods` VALUES (3, '冰箱', '999', 'https://gd2.alicdn.com/imgextra/i1/2214954266242/O1CN01oPCSpD1vyt2P8xlb2_!!2214954266242.jpg_400x400.jpg', 50, 18, '节能减排', 4, '2023-01-06 16:43:16', 0, 1);
+INSERT INTO `goods` VALUES (4, '喇叭裤', '15', 'https://img11.360buyimg.com/n1/jfs/t1/192623/34/26616/226166/62f0c2b5E3ccbee19/01b9c36a73eba752.jpg', 66, 34, '喇叭裤，回到当年的潮流', 8, '2023-01-06 16:44:34', 4, 1);
+INSERT INTO `goods` VALUES (5, '巫师帽子', '998', 'https://img10.360buyimg.com/n1/jfs/t1/169645/6/30676/173081/6345542bEf91d0fcb/b5db888005ccf703.jpg', 123, 321, '成为巫师的必备产品', 10, '2023-01-06 16:45:45', 0, 1);
+INSERT INTO `goods` VALUES (6, '蓝天酱油', '5', 'https://img12.360buyimg.com/n1/jfs/t1/195404/6/30783/66031/63ad4b2bF063a2ac9/1cb716faeb1b9faf.jpg', 300, 156, '蓝天酱油就是好', 12, '2023-01-06 16:46:56', 0, 2);
+INSERT INTO `goods` VALUES (8, '玫瑰花', '99', 'https://img13.360buyimg.com/n7/jfs/t1/59324/25/1667/333868/5cf71cceE2bd2af1c/de0aaea70a41311a.jpg', 1232, 0, '女生都感动哭了！', 16, '2023-02-02 10:29:28', 2, 1);
+INSERT INTO `goods` VALUES (21, '蔓越莓曲奇饼干', '40', 'http://localhost:7001/public/userimg/15bda304-69fb-4897-8660-c4c1a493b9eb.jpg', 499, 0, '蔓越莓曲奇饼干真好吃', 11, '2023-02-02 16:35:02', 1, 2);
+INSERT INTO `goods` VALUES (20, '士力架', '5', 'http://localhost:7001/public/userimg/573362d3-0dd6-4369-b2be-8e72ba337a6f.jpg', 500, 0, '横扫饥饿做回自己', 11, '2023-02-02 16:30:29', 0, 2);
+INSERT INTO `goods` VALUES (19, '士力架plus', '7', 'http://localhost:7001/public/userimg/a33f83ad-9848-48f0-800c-3524c250f6a2.jpg', 500, 0, '横扫饥饿做回自己', 11, '2023-02-02 16:30:20', 0, 2);
+INSERT INTO `goods` VALUES (18, '奥利奥', '10', 'http://localhost:7001/public/userimg/1ff428de-4b91-4366-bf6d-defdb620afd0.jpg', 300, 0, '扭一扭，舔一舔，泡一泡', 11, '2023-02-02 16:23:09', 0, 1);
+INSERT INTO `goods` VALUES (17, '乐事薯片', '8.5', 'http://localhost:7001/public/userimg/d280d8bd-b77a-4400-b073-35b5e963f35a.jpg', 200, 0, '乐事薯片好好吃', 11, '2023-02-02 16:22:07', 0, 1);
+INSERT INTO `goods` VALUES (25, '钢丝球', '4', 'http://localhost:7001/public/userimg/c166069f-9155-4a65-9157-8578bd9163db.jpg', 400, 0, '刷的真干净', 17, '2023-02-02 17:21:00', 0, 3);
+INSERT INTO `goods` VALUES (26, '篮子', '15', 'http://localhost:7001/public/userimg/e95cae19-9877-4e11-a60e-f6e4d0fda9fa.jpg', 600, 0, '咱家的篮子特别结实', 17, '2023-02-03 16:24:23', 0, 3);
+
+-- ----------------------------
+-- Table structure for management
+-- ----------------------------
+DROP TABLE IF EXISTS `management`;
+CREATE TABLE `management`  (
+  `id` int(0) NOT NULL AUTO_INCREMENT,
+  `goodsid` int(0) NOT NULL COMMENT '商品id',
+  `userid` int(0) NOT NULL COMMENT '用户id',
+  `addressid` int(0) NOT NULL COMMENT '地址id',
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = MyISAM AUTO_INCREMENT = 2 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci COMMENT = '订单管理（（goods-user-）该用户的所有已经购买商品----（goods）某商品的商品名称，价格，图片， -----（address）收件人，收货地址，收件人手机号）' ROW_FORMAT = Fixed;
+
+-- ----------------------------
+-- Records of management
+-- ----------------------------
+INSERT INTO `management` VALUES (1, 6, 2, 2);
+
+-- ----------------------------
+-- Table structure for order1
+-- ----------------------------
+DROP TABLE IF EXISTS `order1`;
+CREATE TABLE `order1`  (
+  `id` int(0) NOT NULL AUTO_INCREMENT,
+  `ordernumber` int(0) NULL DEFAULT 0 COMMENT '订单编号',
+  `goodsid` int(0) NULL DEFAULT NULL COMMENT '商品id',
+  `userid` int(0) NULL DEFAULT NULL COMMENT '用户id',
+  `ordertime` datetime(0) NULL DEFAULT NULL COMMENT '下单时间',
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = MyISAM AUTO_INCREMENT = 31 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci COMMENT = '订单表' ROW_FORMAT = Fixed;
+
+-- ----------------------------
+-- Records of order1
+-- ----------------------------
+INSERT INTO `order1` VALUES (1, 1, 1, 1, '2022-11-01 14:05:49');
+INSERT INTO `order1` VALUES (2, 2, 2, 1, '2022-11-02 14:05:49');
+INSERT INTO `order1` VALUES (4, 4, 4, 1, '2022-11-04 14:05:49');
+INSERT INTO `order1` VALUES (5, 5, 5, 2, '2022-11-05 14:05:49');
+INSERT INTO `order1` VALUES (6, 6, 6, 1, '2022-11-06 14:05:49');
+INSERT INTO `order1` VALUES (7, 7, 1, 6, '2022-11-18 14:05:49');
+INSERT INTO `order1` VALUES (8, 8, 2, 2, '2022-11-18 14:05:49');
+INSERT INTO `order1` VALUES (9, 9, 3, 1, '2022-11-18 14:05:49');
+INSERT INTO `order1` VALUES (10, 10, 4, 1, '2022-11-18 14:05:49');
+INSERT INTO `order1` VALUES (11, 11, 5, 6, '2022-11-18 14:05:49');
+INSERT INTO `order1` VALUES (14, 14, 2, 1, '2022-11-04 14:05:49');
+INSERT INTO `order1` VALUES (18, 18, 5, 1, '2022-11-04 14:05:49');
+INSERT INTO `order1` VALUES (21, 21, 8, 1, '2022-11-04 14:05:49');
+INSERT INTO `order1` VALUES (16, 16, 4, 6, '2022-11-18 14:05:49');
+INSERT INTO `order1` VALUES (20, 20, 2, 6, '2022-11-18 14:05:49');
+INSERT INTO `order1` VALUES (23, 23, 5, 6, '2022-11-18 14:05:49');
+
+-- ----------------------------
+-- Table structure for question
+-- ----------------------------
+DROP TABLE IF EXISTS `question`;
+CREATE TABLE `question`  (
+  `id` int(0) NOT NULL AUTO_INCREMENT,
+  `goodsid` int(0) NOT NULL COMMENT '商品id',
+  `userid` int(0) NOT NULL COMMENT '用户id',
+  `content` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL COMMENT '评论',
+  `time` datetime(0) NOT NULL DEFAULT CURRENT_TIMESTAMP(0) COMMENT '评论时间',
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = MyISAM AUTO_INCREMENT = 2 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci COMMENT = '问和答的评论' ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of question
+-- ----------------------------
+INSERT INTO `question` VALUES (1, 6, 3, '好贵', '2023-01-06 16:57:03');
+
+-- ----------------------------
+-- Table structure for shops
+-- ----------------------------
+DROP TABLE IF EXISTS `shops`;
+CREATE TABLE `shops`  (
+  `id` int(0) NOT NULL AUTO_INCREMENT,
+  `userid` int(0) NOT NULL DEFAULT 0 COMMENT '用户id',
+  `name` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL DEFAULT '0' COMMENT '商家姓名',
+  `idcard` bigint(0) NOT NULL DEFAULT 0 COMMENT '商家身份证',
+  `shopname` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL COMMENT '店铺名',
+  `shopdetails` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL COMMENT '店铺详情',
+  `order` bigint(0) NULL DEFAULT NULL COMMENT '订单详情',
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = MyISAM AUTO_INCREMENT = 6 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci COMMENT = '店铺详情' ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of shops
+-- ----------------------------
+INSERT INTO `shops` VALUES (1, 1, '李李', 510123111122223333, '阿牛小卖部', '专注零食', NULL);
+INSERT INTO `shops` VALUES (2, 2, '张二蛋', 3892103821093, '旺旺小店', '新年旺旺', NULL);
+INSERT INTO `shops` VALUES (3, 6, '李二甩', 3872190742189, '万万百货店', '啥都有哦！', NULL);
+INSERT INTO `shops` VALUES (4, 0, '我的', 777777777777777777, '无法', '大大', NULL);
+
+-- ----------------------------
+-- Table structure for test
+-- ----------------------------
+DROP TABLE IF EXISTS `test`;
+CREATE TABLE `test`  (
+  `id` int(0) NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
+  `number` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
+  `age` int(0) NULL DEFAULT NULL,
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of test
+-- ----------------------------
+INSERT INTO `test` VALUES (1, '1', '1', 1);
+INSERT INTO `test` VALUES (2, '2', '2', 2);
+
+-- ----------------------------
+-- Table structure for user
+-- ----------------------------
+DROP TABLE IF EXISTS `user`;
+CREATE TABLE `user`  (
+  `id` int(0) NOT NULL AUTO_INCREMENT,
+  `phone` bigint(0) NOT NULL DEFAULT 0 COMMENT '用户手机号码',
+  `password` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL COMMENT '用户密码',
+  `email` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci NULL DEFAULT NULL COMMENT '用户邮箱',
+  `headimg` varchar(5000) CHARACTER SET utf8 COLLATE utf8_unicode_ci NULL DEFAULT NULL COMMENT '用户头像',
+  `nickname` varchar(500) CHARACTER SET utf8 COLLATE utf8_unicode_ci NULL DEFAULT NULL COMMENT '用户昵称',
+  `sex` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci NULL DEFAULT NULL COMMENT '性别',
+  `createtime` datetime(0) NULL DEFAULT CURRENT_TIMESTAMP(0) COMMENT '注册时间',
+  `age` int(0) NULL DEFAULT NULL COMMENT '年龄',
+  `isshop` int(0) NOT NULL DEFAULT 0 COMMENT '是否为卖家的验证，1为卖家，0为普通买家',
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = MyISAM AUTO_INCREMENT = 9 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci COMMENT = '用户信息' ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of user
+-- ----------------------------
+INSERT INTO `user` VALUES (1, 12345678912, '123', '123@qq.com312312', 'http://localhost:7001/public/userimg/7793d81e-c2db-4771-90ac-010e3426d771.jpg', '熊二', '男', '2023-01-06 17:00:56', 203, 1);
+INSERT INTO `user` VALUES (2, 18227570511, '123', '444@qq.com', 'http://localhost:7001/public/userimg/b01b6384-168f-4dc8-8c6e-91bac4545469.jpg', '牛牛', '男', '2023-01-06 17:00:56', 25, 1);
+INSERT INTO `user` VALUES (3, 18782929483, '123', NULL, 'http://localhost:7001/public/userimg/38ff93b6-f965-4f47-b251-cf7c70bb6c0b.jpg', '李李', '男', '2023-01-06 17:00:56', 23, 0);
+INSERT INTO `user` VALUES (8, 17760466004, '123', '1193286876@qq.com', 'http://localhost:7001/public/userimg/19918cb9-2333-42a4-a89a-78473c9f680a.jpg', '小周', NULL, '2023-04-18 22:05:57', 22, 0);
+INSERT INTO `user` VALUES (6, 123, '123', '', 'http://localhost:7001/public/userimg/46eb4bf8-cd27-46f5-80c5-c9643096b52a.webp', '翠花', '女', '2023-01-13 15:36:00', 123, 1);
+
+SET FOREIGN_KEY_CHECKS = 1;
